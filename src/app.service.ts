@@ -1,8 +1,14 @@
-import { Injectable } from '@nestjs/common';
+import { Inject, Injectable } from '@nestjs/common';
+import { ConfigType } from '@nestjs/config';
+import config from './config';
 
 @Injectable()
 export class AppService {
+  constructor(
+    @Inject(config.KEY) private configService: ConfigType<typeof config>,
+  ) {}
   getHello(): string {
-    return 'Hello World!';
+    const name = this.configService.sqlserver.name;
+    return `Bienvenido a la API REST de entrenamiento, en este momento esta conectado a ${name}`;
   }
 }
