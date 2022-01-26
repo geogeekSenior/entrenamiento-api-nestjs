@@ -8,6 +8,7 @@ import config from './config';
 import { CursoModule } from './curso/curso.module';
 import { enviroments } from './enviroments';
 import { UsuarioModule } from './usuario/usuario.module';
+import { DatabaseModule } from './database/database.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { UsuarioModule } from './usuario/usuario.module';
     AuthModule,
     CursoModule,
     UsuarioModule,
+    DatabaseModule,
   ],
   controllers: [AppController],
   providers: [AppService],
