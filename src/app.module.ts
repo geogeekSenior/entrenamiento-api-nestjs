@@ -17,9 +17,9 @@ import { DatabaseModule } from './database/database.module';
       load: [config],
       isGlobal: true,
       validationSchema: Joi.object({
-        SQL_HOST: Joi.string().required(),
+        SQL_SERVER: Joi.string().required(),
         SQL_DATABASE: Joi.string().required(),
-        SQL_USUARIO: Joi.string().required(),
+        SQL_USER: Joi.string().required(),
         SQL_PASSWORD: Joi.string().required(),
         SQL_PORT: Joi.number().required(),
       }),

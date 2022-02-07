@@ -9,15 +9,20 @@ import config from 'src/config';
     TypeOrmModule.forRootAsync({
       inject: [config.KEY],
       useFactory: (configService: ConfigType<typeof config>) => {
-        const { host, name, user, password } = configService.sqlserver;
+        const { server, database, user, password, encrypt, port } = configService.sqlserver;
+
         return {
           type: 'mssql',
-          host,
-          database: name,
+          host: server,
+          database,
           username: user,
           password,
+          port,
           synchronize: false,
           autoLoadEntities: true,
+          extra: {
+            trustServerCertificate: true
+          }
         };
       },
     }),
@@ -25,4 +30,4 @@ import config from 'src/config';
   providers: [],
   exports: [TypeOrmModule],
 })
-export class DatabaseModule {}
+export class DatabaseModule { }
