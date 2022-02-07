@@ -1,10 +1,11 @@
-import { Column, Entity } from 'typeorm';
+import { Estudiante } from 'src/usuario/entities/estudiante.entity';
+import { Column, Entity, ManyToOne, OneToMany } from 'typeorm';
 
 @Entity()
 export class Clase {
   pfk_grupo: number;
-
-  pfk_estudiante: number;
+  @ManyToOne(() => Estudiante, (estudiante) => estudiante.clase)
+  estudiantes: Estudiante[];
   @Column({ type: 'nvarchar', length: 50 })
   estado_encuesta: string;
   @Column({ type: 'nvarchar', length: 50 })

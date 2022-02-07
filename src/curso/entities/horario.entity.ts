@@ -1,4 +1,11 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Grupo } from './grupo.entity';
 
 @Entity()
 export class Horario {
@@ -10,5 +17,8 @@ export class Horario {
   hora_inicio: Date;
   @Column({ type: 'time' })
   hora_fin: Date;
-  fk_grupo: number;
+
+  @ManyToOne(() => Grupo, (grupo) => grupo.horario)
+  @JoinColumn({ name: 'fk_grupo' })
+  grupos: Grupo[];
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Grupo } from './grupo.entity';
 
 @Entity()
 export class Curso {
@@ -30,4 +31,7 @@ export class Curso {
   ver_material: string;
   @Column({ type: 'nvarchar', length: 100 })
   categoria: string;
+
+  @OneToMany(() => Grupo, (grupo) => grupo.curso)
+  grupos: Grupo[];
 }

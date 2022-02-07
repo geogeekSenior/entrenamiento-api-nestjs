@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Grupo } from './grupo.entity';
 
 @Entity()
 export class Salon {
@@ -15,4 +16,7 @@ export class Salon {
   @Column({ type: 'int' })
   capacidad: number;
   fk_ubicacion: number;
+
+  @OneToMany(() => Grupo, (grupo) => grupo.curso)
+  grupos: Grupo[];
 }

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Grupo } from 'src/curso/entities/grupo.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 @Entity()
 export class Instructor {
@@ -20,4 +21,7 @@ export class Instructor {
   estado: string;
   @Column({ type: 'nvarchar', length: 50 })
   titulo: string;
+
+  @OneToMany(() => Grupo, (grupo) => grupo.curso)
+  grupos: Grupo[];
 }
