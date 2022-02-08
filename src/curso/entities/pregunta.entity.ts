@@ -1,4 +1,5 @@
-import { Entity, PrimaryGeneratedColumn, Column } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import { Encuesta } from './encuesta.entity';
 
 @Entity()
 export class Pregunta {
@@ -14,4 +15,7 @@ export class Pregunta {
   estado: string;
   @Column({ type: 'int' })
   orden: number;
+
+  @OneToMany(() => Encuesta, (encuesta) => encuesta.pregunta)
+  encuestas: Encuesta[];
 }
