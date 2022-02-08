@@ -1,6 +1,6 @@
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
-import { Clase } from 'src/curso/entities/clase.entity';
+import { Clase } from '../../curso/entities/clase.entity';
 
 @Entity()
 export class Estudiante {
@@ -18,7 +18,7 @@ export class Estudiante {
   usuario: string;
   @Column({ type: 'nvarchar', length: 50 })
   num_contacto: string;
-  @Column({ type: 'bit', length: 50 })
+  @Column({ type: 'bit'})
   registrado: boolean;
 
   @OneToMany(() => Clase, (clase) => clase.estudiante)

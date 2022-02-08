@@ -1,6 +1,6 @@
 import { Column, Entity, JoinColumn, ManyToOne } from 'typeorm';
 
-import { Estudiante } from 'src/usuario/entities/estudiante.entity';
+import { Estudiante } from '../../usuario/entities/estudiante.entity';
 import { Empresa } from './empresa.entity';
 import { Grupo } from './grupo.entity';
 
@@ -16,16 +16,16 @@ export class Clase {
   orden_venta: string;
   @Column({ type: 'nvarchar', length: 50 })
   pais_orden_venta: string;
-  @Column({ type: 'numeric', length: 5 })
+  @Column('numeric', { precision: 8, scale: 2 })
   calificacion: string;
   @Column({ type: 'date' })
   fecha: Date;
 
-  @ManyToOne(() => Estudiante, (estudiante) => estudiante.clases)
+  @ManyToOne(() => Estudiante, (estudiante) => estudiante.clases,{ primary: true })
   @JoinColumn({ name: 'pfk_estudiante' })
   estudiante: Estudiante;
 
-  @ManyToOne(() => Grupo, (grupo) => grupo.clases)
+  @ManyToOne(() => Grupo, (grupo) => grupo.clases, { primary: true })
   @JoinColumn({ name: 'pfk_grupo' })
   grupo: Grupo;
 

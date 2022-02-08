@@ -5,6 +5,7 @@ import {
   OneToMany,
   JoinColumn,
 } from 'typeorm';
+
 import { Grupo } from './grupo.entity';
 import { Ubicacion } from './ubicacion.entity';
 

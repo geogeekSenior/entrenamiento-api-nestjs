@@ -1,4 +1,3 @@
-import { Estudiante } from 'src/usuario/entities/estudiante.entity';
 import {
   Column,
   Entity,
@@ -6,6 +5,8 @@ import {
   ManyToOne,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
+import { Estudiante } from '../../usuario/entities/estudiante.entity';
 import { Clase } from './clase.entity';
 import { Grupo } from './grupo.entity';
 

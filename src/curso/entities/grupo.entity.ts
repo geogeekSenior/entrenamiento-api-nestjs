@@ -1,4 +1,3 @@
-import { Instructor } from 'src/usuario/entities/instructor.entity';
 import {
   Column,
   Entity,
@@ -8,6 +7,8 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
+import { Instructor } from '../../usuario/entities/instructor.entity';
 import { Clase } from './clase.entity';
 import { Curso } from './curso.entity';
 import { Horario } from './horario.entity';

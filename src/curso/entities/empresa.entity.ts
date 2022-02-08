@@ -6,6 +6,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+
 import { Clase } from './clase.entity';
 import { Sector } from './sector.entity';
 
