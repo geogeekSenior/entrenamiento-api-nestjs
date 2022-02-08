@@ -1,5 +1,11 @@
 import { Estudiante } from 'src/usuario/entities/estudiante.entity';
-import { Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 import { Clase } from './clase.entity';
 import { Grupo } from './grupo.entity';
 import { Pregunta } from './pregunta.entity';

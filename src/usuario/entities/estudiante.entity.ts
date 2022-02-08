@@ -1,6 +1,6 @@
-import { Clase } from 'src/curso/entities/clase.entity';
-import { Empresa } from 'src/curso/entities/empresa.entity';
 import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+
+import { Clase } from 'src/curso/entities/clase.entity';
 
 @Entity()
 export class Estudiante {
