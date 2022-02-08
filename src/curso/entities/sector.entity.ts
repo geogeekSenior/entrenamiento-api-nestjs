@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { Empresa } from './empresa.entity';
 
 @Entity()
 export class Sector {
@@ -6,4 +7,7 @@ export class Sector {
   pk_sector: number;
   @Column({ type: 'nvarchar', length: 100 })
   nombre: string;
+
+  @OneToMany(() => Empresa, (empresa) => empresa.sector)
+  empresas: Empresa[];
 }

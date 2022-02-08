@@ -1,4 +1,13 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Column,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  OneToMany,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
+import { Clase } from './clase.entity';
+import { Sector } from './sector.entity';
 
 @Entity()
 export class Empresa {
@@ -12,5 +21,11 @@ export class Empresa {
   pais: string;
   @Column({ type: 'int' })
   customer_number: number;
-  fk_sector: number;
+
+  @ManyToOne(() => Sector, (sector) => sector.empresas)
+  @JoinColumn({ name: 'fk_sector' })
+  sector: Sector;
+
+  @OneToMany(() => Clase, (clase) => clase.empresa)
+  clases: Clase[];
 }

@@ -1,5 +1,12 @@
-import { Entity, PrimaryGeneratedColumn, Column, OneToMany } from 'typeorm';
+import {
+  Entity,
+  PrimaryGeneratedColumn,
+  Column,
+  OneToMany,
+  JoinColumn,
+} from 'typeorm';
 import { Grupo } from './grupo.entity';
+import { Ubicacion } from './ubicacion.entity';
 
 @Entity()
 export class Salon {
@@ -15,7 +22,10 @@ export class Salon {
   estado: string;
   @Column({ type: 'int' })
   capacidad: number;
-  fk_ubicacion: number;
+
+  @OneToMany(() => Ubicacion, (ubicacion) => ubicacion.salones)
+  @JoinColumn({ name: 'fk_ubicacion' })
+  ubicacion: Ubicacion;
 
   @OneToMany(() => Grupo, (grupo) => grupo.curso)
   grupos: Grupo[];

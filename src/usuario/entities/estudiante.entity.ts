@@ -21,6 +21,6 @@ export class Estudiante {
   @Column({ type: 'bit', length: 50 })
   registrado: boolean;
 
-  @OneToMany(() => Clase, (clase) => clase.estudiantes)
-  clase: Clase;
+  @OneToMany(() => Clase, (clase) => clase.estudiante)
+  clases: Clase[];
 }

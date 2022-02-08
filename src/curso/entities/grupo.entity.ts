@@ -8,6 +8,7 @@ import {
   OneToMany,
   PrimaryGeneratedColumn,
 } from 'typeorm';
+import { Clase } from './clase.entity';
 import { Curso } from './curso.entity';
 import { Horario } from './horario.entity';
 import { Salon } from './salon.entity';
@@ -43,4 +44,7 @@ export class Grupo {
 
   @OneToMany(() => Horario, (horario) => horario.grupos)
   horario: Horario;
+
+  @OneToMany(() => Clase, (clase) => clase.grupo)
+  clases: Clase[];
 }
