@@ -9,13 +9,15 @@ import { EstudianteService } from '../services/estudiante.service';
 export class EstudianteController {
   constructor(private estudianteService: EstudianteService) {}
 
-  @Get(':id')
-  findOne(@Param('id') id: number) {
-    return this.estudianteService.findOne(id);
-  }
+  // @Get(':id')
+  // findOne(@Param('id') id: number) {
+  //   console.log(id)
+  //   return this.estudianteService.findOne(id);
+  // }
 
   @Get(':user')
   findOneByUser(@Param('user') user: string) {
+    console.log(user)
     return this.estudianteService.findOneByUser(user);
   }
 
