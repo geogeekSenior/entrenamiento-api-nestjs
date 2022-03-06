@@ -17,15 +17,15 @@ export class Clase {
   @Column({ type: 'nvarchar', length: 50 })
   pais_orden_venta: string;
   @Column('numeric', { precision: 8, scale: 2 })
-  calificacion: string;
+  calificacion: number;
   @Column({ type: 'date' })
   fecha: Date;
 
-  @ManyToOne(() => Estudiante, (estudiante) => estudiante.clases,{ primary: true })
+  @ManyToOne(() => Estudiante, (estudiante) => estudiante.clases,{ primary: true})
   @JoinColumn({ name: 'pfk_estudiante' })
   estudiante: Estudiante;
 
-  @ManyToOne(() => Grupo, (grupo) => grupo.clases, { primary: true })
+  @ManyToOne(() => Grupo, (grupo) => grupo.clases, { primary: true})
   @JoinColumn({ name: 'pfk_grupo' })
   grupo: Grupo;
 

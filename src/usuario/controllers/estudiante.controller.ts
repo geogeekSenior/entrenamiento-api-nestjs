@@ -1,24 +1,35 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, ParseIntPipe, Post, Put } from '@nestjs/common';
 import {
   CreateEstudianteDto,
   UpdateEstudianteDto,
 } from '../dtos/estudiante.dto';
 import { EstudianteService } from '../services/estudiante.service';
+import { View_Clases_Estudiantes } from '../views/clases_estudiantes.view';
 
 @Controller('estudiante')
 export class EstudianteController {
-  constructor(private estudianteService: EstudianteService) {}
+  constructor(private estudianteService: EstudianteService) { }
 
-  // @Get(':id')
-  // findOne(@Param('id') id: number) {
-  //   console.log(id)
-  //   return this.estudianteService.findOne(id);
-  // }
 
+  @Get()
+  findAll(){
+    return this.estudianteService.findAll();
+  }
+  
   @Get(':user')
   findOneByUser(@Param('user') user: string) {
     console.log(user)
     return this.estudianteService.findOneByUser(user);
+  }
+
+  @Get('clases/:doc')
+  findLessonsById(@Param('doc') documento: string) {
+    return this.estudianteService.findLessonsByDoc(documento)
+  }
+
+  @Get('certificado/:doc/:grupo_id')
+  findDataCertificateById(@Param('doc') documento: string,@Param('grupo_id',ParseIntPipe) grupo_id: number) {
+    return this.estudianteService.findDataCertificateByDoc(documento, grupo_id);
   }
 
   @Post()

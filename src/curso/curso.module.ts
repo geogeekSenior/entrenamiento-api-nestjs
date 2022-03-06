@@ -11,6 +11,14 @@ import { Pregunta } from './entities/pregunta.entity';
 import { Salon } from './entities/salon.entity';
 import { Sector } from './entities/sector.entity';
 import { Ubicacion } from './entities/ubicacion.entity';
+import { ClaseService } from './services/clase.service';
+import { CertificadoService } from './services/certificado.service';
+import { EncuestaService } from './services/encuesta.service';
+import { PreguntaService } from './services/pregunta.service';
+import { CertificadoController } from './controllers/certificado.controller';
+import { EncuestaController } from './controllers/encuesta.controller';
+import { PreguntaController } from './controllers/pregunta.controller';
+import { ClaseController } from './controllers/clase.controller';
 
 @Module({
     imports: [TypeOrmModule.forFeature([
@@ -27,5 +35,7 @@ import { Ubicacion } from './entities/ubicacion.entity';
         Ubicacion,
     ])],
     exports: [],
+    providers: [ClaseService, CertificadoService, EncuestaService, PreguntaService],
+    controllers: [CertificadoController, EncuestaController, PreguntaController, ClaseController],
 })
 export class CursoModule { }
