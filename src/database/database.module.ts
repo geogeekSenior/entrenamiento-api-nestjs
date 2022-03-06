@@ -2,6 +2,7 @@ import { Global, Module } from '@nestjs/common';
 import { ConfigType } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import config from 'src/config';
+import { View_Clases_Estudiantes } from 'src/usuario/views/clases_estudiantes.view';
 
 @Global()
 @Module({
@@ -20,6 +21,7 @@ import config from 'src/config';
           port,
           synchronize: false,
           autoLoadEntities: true,
+          entities: [View_Clases_Estudiantes],
           extra: {
             trustServerCertificate: true
           }
