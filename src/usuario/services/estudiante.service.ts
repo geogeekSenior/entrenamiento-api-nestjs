@@ -136,9 +136,17 @@ export class EstudianteService {
       );
     }
   }
-
+  /**Registra los datos del estudiante
+      * @data contiene el json con los datos del estudiante
+      * @throws Error Si ocurre un error en la consulta a la base de datos
+      * @return boolean dependiendo del estado de la transacción
+      */
   async create(data: CreateEstudianteDto) {
     try {
+      const pk_estudiante = await this.estudianteRepo.find({ select: ["pk_estudiante"], where: { doc_identidad: data.doc_identidad } })
+      if (pk_estudiante){
+        return `Estudiante con documento#${data.doc_identidad} ya se encuentra registrado`
+      }
       const newEstudiante = this.estudianteRepo.create(data);
       return await this.estudianteRepo.save(newEstudiante);
     } catch (error) {

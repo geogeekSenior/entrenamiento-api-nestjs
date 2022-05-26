@@ -19,6 +19,8 @@ import { CertificadoController } from './controllers/certificado.controller';
 import { EncuestaController } from './controllers/encuesta.controller';
 import { PreguntaController } from './controllers/pregunta.controller';
 import { ClaseController } from './controllers/clase.controller';
+import { CursoController } from './controllers/curso.controller';
+import { CursoService } from './services/curso.service';
 
 @Module({
     imports: [TypeOrmModule.forFeature([
@@ -35,7 +37,7 @@ import { ClaseController } from './controllers/clase.controller';
         Ubicacion,
     ])],
     exports: [],
-    providers: [ClaseService, CertificadoService, EncuestaService, PreguntaService],
-    controllers: [CertificadoController, EncuestaController, PreguntaController, ClaseController],
+    providers: [ClaseService, CertificadoService, EncuestaService, PreguntaService, CursoService],
+    controllers: [CertificadoController, EncuestaController, PreguntaController, ClaseController, CursoController],
 })
 export class CursoModule { }

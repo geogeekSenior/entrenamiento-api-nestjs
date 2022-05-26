@@ -13,6 +13,7 @@ import { Clase } from './clase.entity';
 import { Curso } from './curso.entity';
 import { Horario } from './horario.entity';
 import { Salon } from './salon.entity';
+import { Tipo_Grupo } from './tipo_grupo.entity';
 
 @Entity()
 export class Grupo {
@@ -48,4 +49,8 @@ export class Grupo {
 
   @OneToMany(() => Clase, (clase) => clase.grupo)
   clases: Clase[];
+
+  // @ManyToOne(() => Tipo_Grupo, (tipoGrupo) => tipoGrupo.grupos)
+  // @JoinColumn({ name: 'fk_tipo_grupo' })
+  // tipo: Tipo_Grupo;
 }

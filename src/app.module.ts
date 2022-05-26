@@ -22,6 +22,8 @@ import { DatabaseModule } from './database/database.module';
         SQL_USER: Joi.string().required(),
         SQL_PASSWORD: Joi.string().required(),
         SQL_PORT: Joi.number().required(),
+        RUTA_MATERIAL: Joi.string().required(),
+        HOST_MATERIAL: Joi.string().required(),
       }),
     }),
     AuthModule,
@@ -32,4 +34,4 @@ import { DatabaseModule } from './database/database.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule {}
+export class AppModule { }

@@ -3,6 +3,10 @@ import { registerAs } from '@nestjs/config';
 export default registerAs('config', () => {
   return {
     port: parseInt(process.env.PORT, 10),
+    material: {
+      ruta_local: process.env.RUTA_MATERIAL,
+      host_material: process.env.HOST_MATERIAL,
+    },
     sqlserver: {
       server: process.env.SQL_SERVER,
       database: process.env.SQL_DATABASE,

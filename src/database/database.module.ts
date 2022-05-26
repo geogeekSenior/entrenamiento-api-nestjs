@@ -10,7 +10,8 @@ import { View_Clases_Estudiantes } from 'src/usuario/views/clases_estudiantes.vi
     TypeOrmModule.forRootAsync({
       inject: [config.KEY],
       useFactory: (configService: ConfigType<typeof config>) => {
-        const { server, database, user, password, encrypt, port } = configService.sqlserver;
+        const { server, database, user, password, encrypt, port } =
+          configService.sqlserver;
 
         return {
           type: 'mssql',
@@ -23,8 +24,8 @@ import { View_Clases_Estudiantes } from 'src/usuario/views/clases_estudiantes.vi
           autoLoadEntities: true,
           entities: [View_Clases_Estudiantes],
           extra: {
-            trustServerCertificate: true
-          }
+            trustServerCertificate: true,
+          },
         };
       },
     }),
@@ -32,4 +33,4 @@ import { View_Clases_Estudiantes } from 'src/usuario/views/clases_estudiantes.vi
   providers: [],
   exports: [TypeOrmModule],
 })
-export class DatabaseModule { }
+export class DatabaseModule {}
