@@ -16,9 +16,9 @@ export class Estudiante {
   correo: string;
   @Column({ type: 'nvarchar', length: 60 })
   usuario: string;
-  @Column({ type: 'nvarchar', length: 50 })
+  @Column({ type: 'nvarchar', length: 50, nullable: true })
   num_contacto: string;
-  @Column({ type: 'bit'})
+  @Column({ type: 'bit', default: 1 })
   registrado: boolean;
 
   @OneToMany(() => Clase, (clase) => clase.estudiante)

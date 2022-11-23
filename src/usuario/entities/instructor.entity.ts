@@ -16,11 +16,11 @@ export class Instructor {
   correo: string;
   @Column({ type: 'nvarchar', length: 60 })
   usuario: string;
-  @Column({ type: 'nvarchar', length: 50 })
+  @Column({ type: 'nvarchar', length: 50, nullable: true })
   num_contacto: string;
   @Column({ type: 'nvarchar', length: 50 })
   estado: string;
-  @Column({ type: 'nvarchar', length: 50 })
+  @Column({ type: 'nvarchar', length: 50, nullable: true })
   titulo: string;
 
   @OneToMany(() => Grupo, (grupo) => grupo.curso)
