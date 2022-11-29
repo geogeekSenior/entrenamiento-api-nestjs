@@ -20,6 +20,7 @@ export class Clase {
     foreignKeyConstraintName: 'fk_clase_grupo',
   })
   pfk_grupo: number;
+
   @ManyToOne(() => Estudiante, (estudiante) => estudiante.clases)
   // @JoinColumn({
   //   name: 'pfk_estudiante',

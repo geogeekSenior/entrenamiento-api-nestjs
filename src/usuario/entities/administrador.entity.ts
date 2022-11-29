@@ -1,8 +1,9 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Check, Column, Entity, PrimaryGeneratedColumn, Unique } from 'typeorm';
 
 @Entity()
 export class Administrador {
-  @PrimaryGeneratedColumn({
+  @PrimaryGeneratedColumn('increment', {
+    primaryKeyConstraintName: 'pk_administrador',
     comment: 'Clave primaria de la tabla Administrador',
   })
   pk_administrador: number;
@@ -33,5 +34,9 @@ export class Administrador {
     comment:
       "Si el Estado es 'Habilitado' podra acceder a todas las funcionalidades de un Administrador",
   })
+  @Check(
+    'CHK_ESTADO_ADMINISTRADOR',
+    "estado='Habilitado' OR estado='Deshabilitado'",
+  )
   estado: string;
 }

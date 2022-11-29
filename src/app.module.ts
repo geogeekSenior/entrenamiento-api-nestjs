@@ -1,14 +1,17 @@
-import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
+import { Module } from '@nestjs/common';
+import { DataSource } from 'typeorm';
 import * as Joi from 'joi';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { AuthModule } from './auth/auth.module';
-import config from './config';
-import { CursoModule } from './curso/curso.module';
-import { enviroments } from './enviroments';
-import { UsuarioModule } from './usuario/usuario.module';
+
 import { DatabaseModule } from './database/database.module';
+import { UsuarioModule } from './usuario/usuario.module';
+import { CursoModule } from './curso/curso.module';
+import { AuthModule } from './auth/auth.module';
+
+import { AppController } from './app.controller';
+import { enviroments } from './enviroments';
+import { AppService } from './app.service';
+import config from './config';
 
 @Module({
   imports: [
@@ -34,4 +37,8 @@ import { DatabaseModule } from './database/database.module';
   controllers: [AppController],
   providers: [AppService],
 })
-export class AppModule { }
+export class AppModule {
+  constructor(private dataSource: DataSource) {
+    console.log(dataSource);
+  }
+}
