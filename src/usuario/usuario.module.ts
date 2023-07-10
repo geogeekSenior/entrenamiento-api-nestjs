@@ -7,8 +7,8 @@ import { CursoModule } from './../curso/curso.module';
 import { Instructor } from './entities/instructor.entity';
 
 @Module({
-  imports: [CursoModule,TypeOrmModule.forFeature([Estudiante, Instructor])],
+  imports: [CursoModule, TypeOrmModule.forFeature([Estudiante, Instructor])],
   providers: [EstudianteService],
-  controllers: [EstudianteController]
+  controllers: [EstudianteController],
 })
-export class UsuarioModule { }
+export class UsuarioModule {}
